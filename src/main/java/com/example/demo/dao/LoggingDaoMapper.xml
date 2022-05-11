@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.LoggingDaoMapper">
+
+    <select id="selectByUsername" resultType="com.example.demo.entity.Account">
+        select
+            username,
+            password
+        from account
+        where username =#{username}
+    </select>
+    <insert id="insertAccount" parameterType="com.example.demo.entity.Account">
+        insert into
+                account(username,password)
+        values(#{account.username},#{account.password})
+    </insert>
+
+    <delete id="deleteAccount">
+        delete from
+                account
+        where   username = #{account.username}
+    </delete>
+</mapper>
