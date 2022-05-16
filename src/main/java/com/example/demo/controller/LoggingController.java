@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+<<<<<<< HEAD
 
 import com.example.demo.entity.Account;
 import com.example.demo.service.LoggingService;
@@ -57,6 +58,35 @@ public class LoggingController {
       LOGGER.info("用户 " + username + " 输入的用户名和密码不正确");
       return "error";
     }
+=======
+import com.example.demo.entity.Account;
+import com.example.demo.service.LoggingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class LoggingController {
+
+  @Autowired
+  private LoggingService loggingService;
+  @RequestMapping("/logging")
+  public String log(){
+    return "logging";
+  }
+
+  @RequestMapping("/verify")
+//  @ResponseBody
+  public String verify(String username,String password){
+    System.out.println("用户名："+username+" 密码："+password);
+    Account account = loggingService.selectByUsername(username);
+    if(account.getPassword().equals(password)) {
+      return "redirect:/userInfo/findAll";
+//      return "index";
+    }
+    else return "error";
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
   }
 
 }

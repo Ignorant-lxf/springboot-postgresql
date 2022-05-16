@@ -48,6 +48,7 @@ public class UserInfo {
     this.age = age;
     this.addr = addr;
   }
+<<<<<<< HEAD
 
   @Override
   public String toString() {
@@ -58,4 +59,6 @@ public class UserInfo {
             ", addr='" + addr + '\'' +
             '}';
   }
+=======
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
 }

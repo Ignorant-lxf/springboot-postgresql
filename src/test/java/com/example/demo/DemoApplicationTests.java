@@ -1,5 +1,6 @@
 package com.example.demo;
 
+<<<<<<< HEAD
 import com.example.demo.dao.LoggingDaoMapper;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.UserInfo;
@@ -9,11 +10,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+import org.junit.jupiter.api.Test;
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class DemoApplicationTests {
 
+<<<<<<< HEAD
   @Autowired
   private UserInfoService userInfoService;
 
@@ -66,6 +71,8 @@ class DemoApplicationTests {
     LOGGER.info(pwd);
     LOGGER.info(pwd2);
   }
+=======
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
   @Test
   void contextLoads() {
   }

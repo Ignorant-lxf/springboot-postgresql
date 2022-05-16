@@ -27,6 +27,7 @@ public class Account {
   public void setPassword(String password) {
     this.password = password;
   }
+<<<<<<< HEAD
 
   @Override
   public String toString() {
@@ -35,4 +36,6 @@ public class Account {
             ", password='" + password + '\'' +
             '}';
   }
+=======
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
 }

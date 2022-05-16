@@ -14,8 +14,13 @@ public class UserInfoServiceImpl implements UserInfoService {
   @Autowired
   private UserInfoDaoMapper userInfoDaoMapper;
   @Override
+<<<<<<< HEAD
   public int insertUser(UserInfo userInfo) {
     return userInfoDaoMapper.insertUser(userInfo);
+=======
+  public void insertUser(UserInfo userInfo) {
+    userInfoDaoMapper.insertUser(userInfo);
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
   }
 
   @Override
@@ -29,6 +34,7 @@ public class UserInfoServiceImpl implements UserInfoService {
   }
 
   @Override
+<<<<<<< HEAD
   public int update(UserInfo userInfo) {
     return userInfoDaoMapper.updateUser(userInfo);
   }
@@ -36,5 +42,14 @@ public class UserInfoServiceImpl implements UserInfoService {
   @Override
   public int delete(UserInfo userInfo) {
     return userInfoDaoMapper.deleteUser(userInfo);
+=======
+  public void update(UserInfo userInfo) {
+    userInfoDaoMapper.updateUser(userInfo);
+  }
+
+  @Override
+  public void delete(UserInfo userInfo) {
+    userInfoDaoMapper.deleteUser(userInfo);
+>>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
   }
 }
