@@ -26,10 +26,6 @@
 	</update>
 
 	<delete id="deleteUser" parameterType="com.example.demo.entity.UserInfo">
-<<<<<<< HEAD
 		delete from user_info where age=#{userInfo.age}
-=======
-		delete from user_info where id=#{userInfo.id}
->>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
 	</delete>
 </mapper>

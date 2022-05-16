@@ -5,8 +5,8 @@
     <sql id="base_word">
 		id,name,age,addr
 	</sql>
-    <select id="findById" parameterType="Integer" resultType="com.example.demo.entity.UserInfo" >
-        select <include refid="base_word"/> from user_info where  id = #{id}
+    <select id="findById" parameterType="com.example.demo.entity.UserInfo" resultType="com.example.demo.entity.UserInfo" >
+        select <include refid="base_word"/> from user_info where  and id = #{userInfo.id}
     </select>
 
     <select id="findAll" resultType="com.example.demo.entity.UserInfo" >
@@ -26,10 +26,6 @@
 	</update>
 
 	<delete id="deleteUser" parameterType="com.example.demo.entity.UserInfo">
-<<<<<<< HEAD
 		delete from user_info where age=#{userInfo.age}
-=======
-		delete from user_info where id=#{userInfo.id}
->>>>>>> c39af85c9d65020d1b43572a36683098bf16c283
 	</delete>
 </mapper>
