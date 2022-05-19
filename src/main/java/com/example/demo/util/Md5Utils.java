@@ -1,16 +1,20 @@
 package com.example.demo.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 /**
-*@ClassName: Md5Utils
-*@Description: 加密的工具类，用于对存储在数据库里面的数据进行加密/解密
-*@Author lxd
-*@Date 2022/5/16
-*@Version 1.0
-*
-*/
+ * @ClassName: Md5Utils
+ * @Description: 加密的工具类，用于对存储在数据库里面的数据进行加密/解密
+ * @Author lxd
+ * @Date 2022/5/16
+ * @Version 1.0
+ */
 public class Md5Utils {
+  private static final Logger LOGGER = LogManager.getLogger(Md5Utils.class);
+
   public static String md5Encode(String inStr) throws Exception {
 
     MessageDigest md5 = null;
@@ -21,10 +25,7 @@ public class Md5Utils {
 
     } catch (Exception e) {
 
-      System.out.println(e.toString());
-
-      e.printStackTrace();
-
+      LOGGER.error(e);
       return "";
 
     }

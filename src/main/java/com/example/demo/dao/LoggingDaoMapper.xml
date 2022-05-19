@@ -9,6 +9,15 @@
         from account
         where username =#{username}
     </select>
+    <select id="selectAccount" resultType="com.example.demo.entity.Account">
+        select
+            username,
+            password
+        from
+            account
+        where
+            username=#{account.username}
+    </select>
     <insert id="insertAccount" parameterType="com.example.demo.entity.Account">
         insert into
                 account(username,password)
@@ -20,4 +29,10 @@
                 account
         where   username = #{account.username}
     </delete>
+
+    <select id="existAccount" parameterType="com.example.demo.entity.Account" resultType="java.lang.Integer">
+        select count(*)
+        from account
+        where username=#{account.username}
+    </select>
 </mapper>

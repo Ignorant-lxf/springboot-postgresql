@@ -7,22 +7,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Component
 @Transactional
 public class UserInfoServiceImpl implements UserInfoService {
 
   @Autowired
   private UserInfoDaoMapper userInfoDaoMapper;
+
   @Override
   public int insertUser(UserInfo userInfo) {
     return userInfoDaoMapper.insertUser(userInfo);
 
   }
 
-  @Override
-  public UserInfo findById(int id) {
-    return userInfoDaoMapper.findById(id);
-  }
+//  @Override
+//  public UserInfo findById(int id) {
+//    return userInfoDaoMapper.findById(id);
+//  }
 
   @Override
   public List<UserInfo> findAll() {

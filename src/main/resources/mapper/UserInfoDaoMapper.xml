@@ -5,15 +5,22 @@
     <sql id="base_word">
 		id,name,age,addr
 	</sql>
-    <select id="findById" parameterType="com.example.demo.entity.UserInfo" resultType="com.example.demo.entity.UserInfo" >
-        select <include refid="base_word"/> from user_info where  and id = #{userInfo.id}
+    <select id="findById" parameterType="com.example.demo.entity.UserInfo"
+            resultType="com.example.demo.entity.UserInfo">
+        select
+        <include refid="base_word"/>
+        from user_info
+        where id = #{userInfo.id}
     </select>
 
-    <select id="findAll" resultType="com.example.demo.entity.UserInfo" >
-        select <include refid="base_word"/> from user_info
+    <select id="findAll" resultType="com.example.demo.entity.UserInfo">
+        select
+        <include refid="base_word"/>
+        from user_info
     </select>
     <insert id="insertUser" parameterType="com.example.demo.entity.UserInfo">
-		insert into user_info(id,name,age,addr) values (
+		insert into user_info(id,name,age,addr)
+		values (
 		#{userInfo.id},
 		#{userInfo.name},
 		#{userInfo.age},
@@ -21,11 +28,15 @@
 		)
 	</insert>
 
-	<update id="updateUser" parameterType="com.example.demo.entity.UserInfo">
-		update user_info set age=50 where id>#{userInfo.id};
+    <update id="updateUser" parameterType="com.example.demo.entity.UserInfo">
+	update user_info
+	set age=30
+	where id>#{userInfo.id};
 	</update>
 
-	<delete id="deleteUser" parameterType="com.example.demo.entity.UserInfo">
-		delete from user_info where age=#{userInfo.age}
+    <delete id="deleteUser" parameterType="com.example.demo.entity.UserInfo">
+		delete
+		from user_info
+		where id=#{userInfo.id}
 	</delete>
 </mapper>

@@ -1,8 +1,10 @@
 package com.example.demo.entity;
 
+//每个账户内部应该有id标识，用于开发人员操作
 public class Account {
   private String username;
   private String password;
+
 
   public Account() {
   }

@@ -1,15 +1,16 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.entity.UserInfo;
+import com.example.demo.entity.return_type.Result;
+import com.example.demo.entity.return_type.ResultInfo;
 import com.example.demo.service.UserInfoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -24,16 +25,17 @@ import java.util.List;
 @Controller
 @RequestMapping("/userInfo")
 public class UserInfoController {
-  private static final Logger LOGGER = LogManager.getLogger(LoggingController.class);
+  private static final Logger LOGGER = LogManager.getLogger(UserInfoController.class);
 
   @Autowired
   private UserInfoService userInfoService;
 
   @RequestMapping("/insert")
-  public String insert(@RequestBody UserInfo userInfo) {
+  @ResponseBody
+  public ResultInfo<List<UserInfo>> insert(@RequestBody UserInfo userInfo) {
     userInfoService.insertUser(userInfo);
     LOGGER.info(userInfo + " 插入数据成功");
-    return "插入成功";
+    return Result.Ok(userInfoService.findAll());
   }
 
   /**
@@ -42,10 +44,10 @@ public class UserInfoController {
    * @DateTime 2022/5/16 9:18
    * @Params id
    */
-  @RequestMapping("/findById")
-  public UserInfo findById(int id) {
-    return userInfoService.findById(id);
-  }
+//  @RequestMapping("/findById")
+//  public UserInfo findById(int id) {
+//    return userInfoService.findById(id);
+//  }
 
   /**
    * @Author: lxd
@@ -54,11 +56,10 @@ public class UserInfoController {
    * @Params null
    */
   @RequestMapping("/findAll")
-  public String findAll(Model model) {
+  @ResponseBody
+  public List<UserInfo> findAll() {
     List<UserInfo> users = userInfoService.findAll();
-    model.addAttribute("users", users);
-    return "index";
-//    return  userInfoService.findAll(); 最开始接口的测试
+    return users;
   }
 
   /**
@@ -68,9 +69,11 @@ public class UserInfoController {
    * @Params userInfo
    */
   @RequestMapping("/update")
-  public String update(@RequestBody UserInfo userInfo) {
+  @ResponseBody
+  public ResultInfo<List<UserInfo>> update(@RequestBody UserInfo userInfo) {
     userInfoService.update(userInfo);
-    return "修改成功";
+    LOGGER.info("修改 " + userInfo + " 的信息");
+    return Result.Ok(userInfoService.findAll());
   }
 
 
@@ -81,8 +84,10 @@ public class UserInfoController {
    * @Params userInfo
    */
   @RequestMapping("/delete")
-  public String delete(@RequestBody UserInfo userInfo) {
-    userInfo = new UserInfo();
-    return "";
+  @ResponseBody
+  public ResultInfo<List<UserInfo>> delete(@RequestBody UserInfo userInfo) {
+    int n = userInfoService.delete(userInfo);
+    LOGGER.info("删除的数量为： " + n);
+    return Result.Ok(userInfoService.findAll());
   }
 }
