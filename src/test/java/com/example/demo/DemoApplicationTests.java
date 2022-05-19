@@ -1,5 +1,4 @@
 package com.example.demo;
-
 import com.example.demo.dao.LoggingDaoMapper;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.UserInfo;

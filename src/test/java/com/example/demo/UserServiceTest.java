@@ -1,5 +1,4 @@
 package com.example.demo;
-
 import com.example.demo.entity.UserInfo;
 import com.example.demo.service.UserInfoService;
 import org.apache.logging.log4j.LogManager;
