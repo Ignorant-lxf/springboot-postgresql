@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserInfoDaoMapper {
   int insertUser(@Param("userInfo") UserInfo userInfo);
 
-  UserInfo findById(int id);
+//  UserInfo findById(int id);
 
   List<UserInfo> findAll();
 

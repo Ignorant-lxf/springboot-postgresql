@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.LoggingDaoMapper">
 
-    <select id="selectByUsername" resultType="com.example.demo.entity.Account">
-        select
-            username,
-            password
-        from account
-        where username =#{username}
-    </select>
+<!--    <select id="selectByUsername" resultType="com.example.demo.entity.Account">-->
+<!--        select-->
+<!--            username,-->
+<!--            password-->
+<!--        from account-->
+<!--        where username =#{username}-->
+<!--    </select>-->
     <select id="selectAccount" resultType="com.example.demo.entity.Account">
         select
             username,

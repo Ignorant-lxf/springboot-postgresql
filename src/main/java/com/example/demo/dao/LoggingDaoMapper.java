@@ -12,7 +12,7 @@ public interface LoggingDaoMapper {
    * @DateTime 2022/5/19 9:55
    * @Params String username
    */
-  Account selectByUsername(String username);
+//  Account selectByUsername(String username);
 
   /**
    * @Author: lxd
