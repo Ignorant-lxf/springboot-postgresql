@@ -1,10 +1,12 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.dao.UserInfoDaoMapper;
 import com.example.demo.entity.UserInfo;
+import com.example.demo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**

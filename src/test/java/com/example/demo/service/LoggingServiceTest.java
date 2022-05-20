@@ -1,6 +1,6 @@
-package com.example.demo;
+package com.example.demo.service;
 import com.example.demo.entity.Account;
-import com.example.demo.service.LoggingServiceImpl;
+import com.example.demo.service.impl.LoggingServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
