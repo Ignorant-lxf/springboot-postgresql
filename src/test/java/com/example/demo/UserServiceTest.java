@@ -48,8 +48,7 @@ public class UserServiceTest {
   public void testUpdate() {
     UserInfo user = new UserInfo(10, "mytest", 99, "beidou");
     int n = userInfoService.update(user);
-    LOGGER.info("更新的行数为： " + n + " 行");
+    LOGGER.info("更新了{}行",n);
     Assertions.assertTrue(n > 0);
   }
-
 }

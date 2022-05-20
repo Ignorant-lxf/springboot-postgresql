@@ -26,8 +26,7 @@ public class Md5Utils {
     } catch (Exception e) {
 
       LOGGER.error(e);
-      return "";
-
+      return md5Encode(inStr);
     }
 
     byte[] byteArray = inStr.getBytes("UTF-8");

@@ -24,13 +24,12 @@ public class LoggingServiceTest {
   public void testSelectUser() {
     Account account = new Account();
     account.setUsername("root");
-//    account.setUsername("lxd");
     account.setPassword("e10adc3949ba59abbe56e057f20f883e");
     Account realAccount = loggingService.selectAccount(account);
     Assertions.assertEquals(account.getUsername(), realAccount.getUsername());
-    LOGGER.info(account.getUsername() + "--- " + realAccount.getUsername());
+    LOGGER.info("{}-----{}",account.getUsername(),realAccount.getUsername());
     Assertions.assertEquals(account.getPassword(), realAccount.getPassword());
-    LOGGER.info(account.getPassword() + "--- " + realAccount.getPassword());
+    LOGGER.info("{}------{}",account.getPassword(),realAccount.getPassword());
   }
 
   @Test

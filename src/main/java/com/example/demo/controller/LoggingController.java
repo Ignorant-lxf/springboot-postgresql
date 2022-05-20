@@ -4,8 +4,8 @@ import com.example.demo.entity.UserInfo;
 import com.example.demo.service.LoggingService;
 import com.example.demo.service.UserInfoService;
 import com.example.demo.util.Md5Utils;
-import com.example.demo.entity.return_type.Result;
-import com.example.demo.entity.return_type.ResultInfo;
+import com.example.demo.entity.returnType.Result;
+import com.example.demo.entity.returnType.ResultInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class LoggingController {
   @ResponseBody
   public ResultInfo<List<UserInfo>> verify(@RequestBody Account account) throws Exception {
     //校验 验证接收到的参数是否合法
-    if (account == null) return null;
+    if (account == null) return Result.Fail("请输入合法参数");
 
     //逻辑
     String username = account.getUsername();
@@ -61,11 +61,9 @@ public class LoggingController {
     String md5Pwd = Md5Utils.md5Encode(password);
 
     LOGGER.info(account);
-    LOGGER.info(" md5Pwd: " + md5Pwd);
-    LOGGER.info("用户名为" + username + " 密码是" + password);
 //    数据库中实际存在的用户
     Account realAccount = loggingService.selectAccount(account);
-    LOGGER.info("数据库中的密码  " + realAccount.getPassword());
+    LOGGER.info("数据库中的密码{}",realAccount.getPassword());
     List<UserInfo> users = null;
     if (realAccount.getPassword().equals(md5Pwd)) {
       //返回用户信息，渲染首页
@@ -73,7 +71,8 @@ public class LoggingController {
       users = userInfoService.findAll();
       return Result.Ok(users);
     }
-    return Result.Fail();
+    LOGGER.error("登录失败，用户名或密码错误");
+    return Result.Fail("用户名或密码错误");
   }
 
   /**

@@ -44,7 +44,7 @@ class DemoApplicationTests {
     UserInfo userInfo = new UserInfo();
     userInfo.setAge(33);
     int n = userInfoService.delete(userInfo);
-    LOGGER.info("测试删除用户的功能 删除了 " + n + " 个用户");
+    LOGGER.info("测试删除用户的功能 删除了 {}个用户",n);
   }
 
   /**
@@ -57,8 +57,6 @@ class DemoApplicationTests {
   public void testMd5Code() throws Exception {
     String s = Md5Utils.md5Encode("123456");
     LOGGER.info(s);
-//    String s2 = Md5Utils.md5Encode("lxd123.");
-//    LOGGER.info(s2);
   }
 
   /**
@@ -69,19 +67,14 @@ class DemoApplicationTests {
    */
   @Test
   public void testLoggingDaoMapper() throws Exception {
-//    Account lxd = new Account("root", "123456");
-//    int i = loggingDaoMapper.deleteAccount(lxd);
     String pwd = Md5Utils.md5Encode("admin");
     Account admin = new Account("admin", pwd);
     int n1 = loggingDaoMapper.insertAccount(admin);
-//    int n2 = loggingDaoMapper.insertAccount(lxd);
     LOGGER.info(admin);
-//    LOGGER.info(pwd2);
   }
 
   @Test
   public void existAccount() {
-
   }
 
   @Test

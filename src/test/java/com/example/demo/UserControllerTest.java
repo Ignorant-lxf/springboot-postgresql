@@ -28,17 +28,10 @@ public class UserControllerTest {
 
 
   @BeforeEach
-  @DisplayName("Each unit test method is executed once before execution")
   public void before() throws Exception {
     mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();   //指定WebApplicationContext，将会从该上下文获取相应的控制器并得到相应的MockMvc
     request = new MockHttpServletRequest();
   }
-
-  @AfterEach
-  @DisplayName("Each unit test method is executed once before execution")
-  public void after() throws Exception {
-  }
-
 
   /**
    * @Author: lxd
