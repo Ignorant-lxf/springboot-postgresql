@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.entity.Account;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.service.LoggingService;
@@ -56,14 +57,16 @@ public class LoggingController {
     //逻辑
     String username = account.getUsername();
     String password = account.getPassword();
-
+    if (null==username){
+      return Result.Fail("请输入用户名！");
+    }
     //对密码md5加密和数据库进行判断
     String md5Pwd = Md5Utils.md5Encode(password);
 
     LOGGER.info(account);
 //    数据库中实际存在的用户
     Account realAccount = loggingService.selectAccount(account);
-    LOGGER.info("数据库中的密码{}",realAccount.getPassword());
+    LOGGER.info("数据库中的密码{}", realAccount.getPassword());
     List<UserInfo> users = null;
     if (realAccount.getPassword().equals(md5Pwd)) {
       //返回用户信息，渲染首页
@@ -83,7 +86,7 @@ public class LoggingController {
    */
   @RequestMapping("/register")
   @ResponseBody
-  public ResultInfo register(@RequestBody Account account) {
+  public ResultInfo register(@RequestBody Account account) throws Exception {
 //    数据健壮性校验
     if (account == null) {
       return Result.Fail("请输入用户名");
@@ -92,6 +95,10 @@ public class LoggingController {
     if (count > 0) {
       return Result.Fail("账号已存在");
     }
+//    获取未加密之前的密码
+    String password = account.getPassword();
+    String md5Pwd = Md5Utils.md5Encode(password);
+    account.setPassword(md5Pwd);
 //    插入账号
     int i = loggingService.insertAccount(account);
     if (i <= 0) {

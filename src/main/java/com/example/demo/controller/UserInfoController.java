@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.entity.UserInfo;
 import com.example.demo.entity.returnType.Result;
 import com.example.demo.entity.returnType.ResultInfo;
@@ -30,21 +31,20 @@ public class UserInfoController {
   private UserInfoService userInfoService;
 
   /**
-  *@Author: lxd
-  *@Description: 插入用户的功能
-  *@DateTime 2022/5/20 8:56
-  *@Params
-  *
-  */
+   * @Author: lxd
+   * @Description: 插入用户的功能
+   * @DateTime 2022/5/20 8:56
+   * @Params
+   */
   @RequestMapping("/insert")
   @ResponseBody
   public ResultInfo<List<UserInfo>> insert(@RequestBody UserInfo userInfo) {
     int n = userInfoService.insertUser(userInfo);
-    if (n<1){
+    if (n < 1) {
       LOGGER.error("插入数据失败");
       return Result.Fail("插入用户信息失败");
     }
-    LOGGER.info("{} 插入数据成功",userInfo);
+    LOGGER.info("{} 插入数据成功", userInfo);
     return Result.Ok(userInfoService.findAll());
   }
 
@@ -82,7 +82,7 @@ public class UserInfoController {
   @ResponseBody
   public ResultInfo<List<UserInfo>> update(@RequestBody UserInfo userInfo) {
     int update = userInfoService.update(userInfo);
-    if (update<1){
+    if (update < 1) {
       return Result.Fail("信息修改失败");
     }
     LOGGER.info("信息修改成功");
@@ -100,7 +100,7 @@ public class UserInfoController {
   @ResponseBody
   public ResultInfo<List<UserInfo>> delete(@RequestBody UserInfo userInfo) {
     int n = userInfoService.delete(userInfo);
-    if (n<0){
+    if (n < 0) {
       LOGGER.error("删除用户信息失败");
       return Result.Fail();
     }

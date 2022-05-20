@@ -5,13 +5,13 @@
     <sql id="base_word">
 		id,name,age,addr
 	</sql>
-<!--    <select id="findById" parameterType="com.example.demo.entity.UserInfo"-->
-<!--            resultType="com.example.demo.entity.UserInfo">-->
-<!--        select-->
-<!--        <include refid="base_word"/>-->
-<!--        from user_info-->
-<!--        where id = #{userInfo.id}-->
-<!--    </select>-->
+    <!--    <select id="findById" parameterType="com.example.demo.entity.UserInfo"-->
+    <!--            resultType="com.example.demo.entity.UserInfo">-->
+    <!--        select-->
+    <!--        <include refid="base_word"/>-->
+    <!--        from user_info-->
+    <!--        where id = #{userInfo.id}-->
+    <!--    </select>-->
 
     <select id="findAll" resultType="com.example.demo.entity.UserInfo">
         select

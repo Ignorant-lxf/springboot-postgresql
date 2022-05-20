@@ -1,13 +1,12 @@
 package com.example.demo.entity.returnType;
 
 /**
-*@ClassName: Result
-*@Description: 返回值的包装类
-*@Author lxd
-*@Date 2022/5/20
-*@Version 1.0
-*
-*/
+ * @ClassName: Result
+ * @Description: 返回值的包装类
+ * @Author lxd
+ * @Date 2022/5/20
+ * @Version 1.0
+ */
 public class Result {
   //通用返回结果的方法类
 

@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
@@ -49,6 +51,11 @@ public class UserControllerTest {
             .andExpect(status().isOk())
             .andDo(print())
             .andReturn().getResponse().getContentAsString();
+    //    将消息体的json数据转换为对象类型
+    JSONObject jsonbody = JSON.parseObject(result);
+//    获取消息体的状态码
+    int code = (int) jsonbody.get("code");
+    Assertions.assertTrue(code == 0);
     Assertions.assertNotNull(result);
   }
 
@@ -67,6 +74,11 @@ public class UserControllerTest {
             .andExpect(status().isOk())
             .andDo(print())
             .andReturn().getResponse().getContentAsString();
+    //    将消息体的json数据转换为对象类型
+    JSONObject jsonbody = JSON.parseObject(result);
+//    获取消息体的状态码
+    int code = (int) jsonbody.get("code");
+    Assertions.assertTrue(code == 0);
     Assertions.assertNotNull(result);
   }
 
@@ -86,6 +98,11 @@ public class UserControllerTest {
             .andExpect(status().isOk())
             .andDo(print())
             .andReturn().getResponse().getContentAsString();
+    //    将消息体的json数据转换为对象类型
+    JSONObject jsonbody = JSON.parseObject(result);
+//    获取消息体的状态码
+    int code = (int) jsonbody.get("code");
+    Assertions.assertTrue(code == 0);
     Assertions.assertNotNull(result);
   }
 
@@ -105,6 +122,11 @@ public class UserControllerTest {
             .andExpect(status().isOk())
             .andDo(print())
             .andReturn().getResponse().getContentAsString();
+    //    将消息体的json数据转换为对象类型
+    JSONObject jsonbody = JSON.parseObject(result);
+//    获取消息体的状态码
+    int code = (int) jsonbody.get("code");
+    Assertions.assertTrue(code == 0);
     Assertions.assertNotNull(result);
   }
 }
